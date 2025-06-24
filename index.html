@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Martinez Forex Official - Your Gateway to Forex Trading & MT5</title>
     <style>
+        :root {
+            /* Light theme variables */
+            --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-secondary: #ffffff;
+            --bg-card: #f8f9fa;
+            --text-primary: #333;
+            --text-secondary: #555;
+            --text-light: #2c3e50;
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+            --border: #e0e0e0;
+            --chart-bg: #f0f0f0;
+            --chart-bg-secondary: #e0e0e0;
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme variables */
+            --bg-primary: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            --bg-secondary: #1a1a1a;
+            --bg-card: #2c2c2c;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-light: #ffffff;
+            --header-bg: rgba(26, 26, 26, 0.95);
+            --shadow: rgba(0, 0, 0, 0.3);
+            --shadow-hover: rgba(0, 0, 0, 0.4);
+            --border: #444444;
+            --chart-bg: #333333;
+            --chart-bg-secondary: #444444;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +46,9 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: all 0.3s ease;
         }
 
         .container {
@@ -24,15 +57,44 @@
             padding: 0 20px;
         }
 
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            padding: 12px 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px var(--shadow);
+            z-index: 1001;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.2rem;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow-hover);
+        }
+
+        .theme-icon {
+            transition: transform 0.3s ease;
+        }
+
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--header-bg);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px var(--shadow);
+            transition: all 0.3s ease;
         }
 
         nav {
@@ -58,8 +120,9 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--text-light);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .nav-links {
@@ -70,7 +133,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #2c3e50;
+            color: var(--text-light);
             font-weight: 500;
             transition: color 0.3s ease;
         }
@@ -85,6 +148,7 @@
             color: white;
             padding: 12px 25px;
             border: none;
+          
             border-radius: 25px;
             font-size: 1rem;
             font-weight: bold;
@@ -108,7 +172,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: var(--text-primary);
             position: relative;
             overflow: hidden;
         }
@@ -117,12 +181,14 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             animation: fadeInUp 1s ease;
+            color: var(--text-primary);
         }
 
         .hero-content p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             animation: fadeInUp 1s ease 0.2s both;
+            color: var(--text-primary);
         }
 
         .cta-button {
@@ -176,22 +242,23 @@
         .hero-signals-text {
             font-size: 1.1rem;
             margin-bottom: 1rem;
-            color: #f8f9fa;
+            color: var(--text-primary);
         }
 
         /* Sections */
         section {
             padding: 5rem 0;
-            background: white;
+            background: var(--bg-secondary);
             margin: 2rem 0;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: all 0.3s ease;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            color: #2c3e50;
+            color: var(--text-light);
             margin-bottom: 3rem;
             position: relative;
         }
@@ -217,14 +284,14 @@
         }
 
         .forex-content h3 {
-            color: #2c3e50;
+            color: var(--text-light);
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
         .forex-content p {
             margin-bottom: 1.5rem;
-            color: #555;
+            color: var(--text-secondary);
             font-size: 1.1rem;
         }
 
@@ -283,18 +350,19 @@
         }
 
         .feature-card {
-            background: #f8f9fa;
+            background: var(--bg-card);
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
             border: 2px solid transparent;
             transition: all 0.3s ease;
+            color: var(--text-primary);
         }
 
         .feature-card:hover {
             border-color: #3498db;
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px var(--shadow);
         }
 
         .download-links {
@@ -329,12 +397,17 @@
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
         }
 
+        [data-theme="dark"] .gold-market {
+            background: linear-gradient(135deg, #3c3c3c 0%, #4a4a4a 100%);
+        }
+
         .chart-container {
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 15px;
             padding: 2rem;
             margin-top: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
         }
 
         .price-display {
@@ -364,6 +437,10 @@
         .signals-section {
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             text-align: center;
+        }
+
+        [data-theme="dark"] .signals-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
         }
 
         .signals-btn {
@@ -403,17 +480,28 @@
             transition: transform 0.3s ease;
         }
 
+        [data-theme="dark"] .learning-card {
+            background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
+            color: var(--text-primary);
+        }
+
         .learning-card:hover {
             transform: translateY(-5px);
         }
 
         /* Footer */
         footer {
-            background: #2c3e50;
-            color: white;
+            background: var(--text-light);
+            color: var(--bg-secondary);
             text-align: center;
             padding: 3rem 0;
             margin-top: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] footer {
+            background: #1a1a1a;
+            color: var(--text-primary);
         }
 
         /* Animations */
@@ -472,28 +560,27 @@
                 padding: 10px 20px;
                 font-size: 0.9rem;
             }
+
+            .theme-toggle {
+                top: 100px;
+                right: 10px;
+                padding: 10px 12px;
+                font-size: 1rem;
+            }
         }
 
         /* Custom Chart Styles */
         .simple-chart {
             height: 400px;
-            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            background: var(--chart-bg);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
-
-        /* .group-image{
-            height: 400px;
-            width: 200px;
-           padding-top: 20px;
-          margin-left: 1200px;
-          
-           
-        } */
 
         .chart-line {
             position: absolute;
@@ -507,9 +594,22 @@
             0%, 100% { transform: translateY(0px) scaleX(0.8); }
             50% { transform: translateY(-20px) scaleX(1.2); }
         }
+
+        /* Theme specific styles for cards with white backgrounds */
+        .signals-section > div > div {
+            background: var(--bg-secondary) !important;
+            color: var(--text-primary) !important;
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle">
+        <span class="theme-icon" id="themeIcon">🌙</span>
+        <span id="themeText">Dark</span>
+    </button>
+
     <!-- Header -->
     <header>
         <nav class="container">
@@ -529,20 +629,16 @@
             </a>
         </nav>
     </header>
-      <!-- Hero Section -->
+
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <!-- <div>
-              <img class="group-image" src="./WhatsApp Image 2025-06-24 at 12.14.05 AM.jpeg" alt="">
-              </div> -->
-            <h1 style="color: black;">Master Forex Trading with MT5</h1>
-            <p style="color: black;">Your complete guide to successful forex trading and MetaTrader 5 platform</p>
+            <h1>Master Forex Trading with MT5</h1>
+            <p>Your complete guide to successful forex trading and MetaTrader 5 platform</p>
             <a href="#what-is-forex" class="cta-button">Start Your Journey</a>
-
-          
             
             <div class="hero-signals-section">
-                <div class="hero-signals-text" style="color: black;">🎯 Get Professional Trading Signals Daily - Completely FREE!</div>
+                <div class="hero-signals-text">🎯 Get Professional Trading Signals Daily - Completely FREE!</div>
                 <a href="https://t.me/martinezforexofficial11" class="hero-signals-btn" target="_blank">
                     📱 Join Martinez Forex Official Signals Group
                 </a>
@@ -617,7 +713,7 @@
         <!-- MT5 Broker Section -->
         <section id="mt5-broker">
             <h2 class="section-title">MetaTrader 5 (MT5) - Professional Trading Platform</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #555; margin-bottom: 3rem;">
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 3rem;">
                 MT5 is the world's most popular trading platform, offering advanced features for forex, stocks, and commodities trading.
             </p>
             
@@ -667,7 +763,7 @@
         <!-- Live Gold Market Section -->
         <section id="gold-market" class="gold-market">
             <h2 class="section-title">Live Gold Market</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #555; margin-bottom: 2rem;">
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
                 Track real-time gold prices and market movements
             </p>
             
@@ -768,6 +864,40 @@
     </footer>
 
     <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+
+        // Update theme toggle button based on current theme
+        function updateThemeToggle() {
+            if (body.getAttribute('data-theme') === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            }
+        }
+
+        // Initialize theme toggle
+        updateThemeToggle();
+
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeToggle();
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -854,7 +984,7 @@
         if (window.innerWidth <= 768) {
             const menuButton = document.createElement('button');
             menuButton.innerHTML = '☰';
-            menuButton.style.cssText = 'background: none; border: none; font-size: 1.5rem; cursor: pointer;';
+            menuButton.style.cssText = 'background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-light);';
             logo.parentNode.appendChild(menuButton);
             
             menuButton.addEventListener('click', () => {
@@ -864,9 +994,9 @@
                 nav.style.top = '100%';
                 nav.style.left = '0';
                 nav.style.right = '0';
-                nav.style.background = 'white';
+                nav.style.background = 'var(--header-bg)';
                 nav.style.padding = '1rem';
-                nav.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                nav.style.boxShadow = '0 5px 15px var(--shadow)';
             });
         }
 
