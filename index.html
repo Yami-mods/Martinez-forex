@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martinez Forex Official - Your Gateway to Forex Trading & MT5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Top Signals Button */
+        .top-signals-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(238, 90, 111, 0.3);
+        }
+
+        .top-signals-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(238, 90, 111, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Signals Button */
+        .hero-signals-section {
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-signals-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            box-shadow: 0 8px 30px rgba(238, 90, 111, 0.4);
+        }
+
+        .hero-signals-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(238, 90, 111, 0.5);
+        }
+
+        .hero-signals-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #f8f9fa;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            border-radius: 2px;
+        }
+
+        /* What is Forex */
+        .forex-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .forex-content h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .forex-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .forex-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        /* Trading Steps */
+        .trading-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* MT5 Section */
+        .mt5-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #3498db;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+        }
+
+        /* Live Gold Section */
+        .gold-market {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-display {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .price-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Signals Section */
+        .signals-section {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            text-align: center;
+        }
+
+        .signals-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .signals-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(238, 90, 111, 0.4);
+        }
+
+        /* Learning Section */
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .learning-card {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            color: #2c3e50;
+            transition: transform 0.3s ease;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .forex-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .download-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .price-display {
+                flex-direction: column;
+            }
+
+            .logo-container {
+                gap: 10px;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .top-signals-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Custom Chart Styles */
+        .simple-chart {
+            height: 400px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* .group-image{
+            height: 400px;
+            width: 200px;
+           padding-top: 20px;
+          margin-left: 1200px;
+          
+           
+        } */
+
+        .chart-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #e74c3c;
+            animation: chartMove 3s ease-in-out infinite;
+        }
+
+        @keyframes chartMove {
+            0%, 100% { transform: translateY(0px) scaleX(0.8); }
+            50% { transform: translateY(-20px) scaleX(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <img src="./WhatsApp Image 2025-06-24 at 12.11.48 AM.jpeg" alt="Martinez Forex Official" class="logo-img">
+                <a href="#" class="logo">Martinez Forex Official</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#what-is-forex">What is Forex</a></li>
+                <li><a href="#how-to-trade">How to Trade</a></li>
+                <li><a href="#mt5-broker">MT5 Broker</a></li>
+                <li><a href="#gold-market">Gold Market</a></li>
+                <li><a href="#learning">Learning</a></li>
+            </ul>
+            <a href="https://t.me/martinezforexofficial11" class="top-signals-btn" target="_blank">
+                🚀 Join Free Signals
+            </a>
+        </nav>
+    </header>
+      <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- <div>
+              <img class="group-image" src="./WhatsApp Image 2025-06-24 at 12.14.05 AM.jpeg" alt="">
+              </div> -->
+            <h1 style="color: black;">Master Forex Trading with MT5</h1>
+            <p style="color: black;">Your complete guide to successful forex trading and MetaTrader 5 platform</p>
+            <a href="#what-is-forex" class="cta-button">Start Your Journey</a>
+
+          
+            
+            <div class="hero-signals-section">
+                <div class="hero-signals-text" style="color: black;">🎯 Get Professional Trading Signals Daily - Completely FREE!</div>
+                <a href="https://t.me/martinezforexofficial11" class="hero-signals-btn" target="_blank">
+                    📱 Join Martinez Forex Official Signals Group
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- What is Forex Section -->
+        <section id="what-is-forex">
+            <h2 class="section-title">What is Forex Trading?</h2>
+            <div class="forex-intro">
+                <div class="forex-content">
+                    <h3>Foreign Exchange Market</h3>
+                    <p>Forex (Foreign Exchange) is the world's largest financial market where currencies are traded 24/5. With a daily trading volume exceeding $6.6 trillion, it offers incredible opportunities for traders worldwide.</p>
+                    
+                    <h3>Key Features:</h3>
+                    <p>• <strong>24-Hour Market:</strong> Trade Monday to Friday, around the clock<br>
+                    • <strong>High Liquidity:</strong> Easy entry and exit from positions<br>
+                    • <strong>Leverage Trading:</strong> Control larger positions with smaller capital<br>
+                    • <strong>Currency Pairs:</strong> Trade major, minor, and exotic pairs</p>
+                    
+                    <h3>Major Currency Pairs:</h3>
+                    <p>EUR/USD, GBP/USD, USD/JPY, USD/CHF, AUD/USD, USD/CAD, NZD/USD</p>
+                </div>
+                <div class="forex-image">
+                    <div>
+                        <h3>📈 Global Currency Trading</h3>
+                        <p>Connect to worldwide markets</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Trade Forex Section -->
+        <section id="how-to-trade">
+            <h2 class="section-title">How to Trade Forex Successfully</h2>
+            <div class="trading-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Learn the Basics</h3>
+                    <p>Understand currency pairs, pips, spreads, leverage, and margin. Master fundamental and technical analysis techniques.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Choose a Reliable Broker</h3>
+                    <p>Select a regulated broker with tight spreads, fast execution, and excellent customer support. MT5 platform recommended.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Develop a Strategy</h3>
+                    <p>Create a trading plan with clear entry/exit rules, risk management, and money management guidelines.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Practice on Demo</h3>
+                    <p>Test your strategy on a demo account before risking real money. Learn platform features and refine your approach.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Start Small</h3>
+                    <p>Begin with small position sizes and gradually increase as you gain experience and confidence in your trading.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h3>Keep Learning</h3>
+                    <p>Continuously educate yourself, analyze your trades, and adapt to changing market conditions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MT5 Broker Section -->
+        <section id="mt5-broker">
+            <h2 class="section-title">MetaTrader 5 (MT5) - Professional Trading Platform</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #555; margin-bottom: 3rem;">
+                MT5 is the world's most popular trading platform, offering advanced features for forex, stocks, and commodities trading.
+            </p>
+            
+            <div class="mt5-features">
+                <div class="feature-card">
+                    <h3>🚀 Advanced Charting</h3>
+                    <p>21 timeframes, 80+ technical indicators, and unlimited charts for comprehensive market analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔧 Expert Advisors (EAs)</h3>
+                    <p>Automated trading with custom algorithms, backtesting, and strategy optimization tools.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Multi-Platform</h3>
+                    <p>Trade on desktop, web, and mobile devices with synchronized accounts and data.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Market Depth</h3>
+                    <p>Level II pricing, order book, and advanced order types for professional trading execution.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔔 Alerts & Notifications</h3>
+                    <p>Custom price alerts, news notifications, and signal alerts to never miss opportunities.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ Security</h3>
+                    <p>Bank-level security, encrypted data transmission, and secure fund protection.</p>
+                </div>
+            </div>
+
+            <div class="download-links">
+                <a href="https://www.metatrader5.com/en/download" class="download-btn" target="_blank">
+                    💻 Download MT5 for Windows
+                </a>
+                <a href="https://download.mql5.com/cdn/mobile/mt5/android" class="download-btn" target="_blank">
+                    📱 Download MT5 for Android
+                </a>
+                <a href="https://download.mql5.com/cdn/mobile/mt5/ios" class="download-btn" target="_blank">
+                    🍎 Download MT5 for iOS
+                </a>
+                <a href="https://trade.metatrader5.com/" class="download-btn" target="_blank">
+                    🌐 MT5 Web Platform
+                </a>
+            </div>
+        </section>
+
+        <!-- Live Gold Market Section -->
+        <section id="gold-market" class="gold-market">
+            <h2 class="section-title">Live Gold Market</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #555; margin-bottom: 2rem;">
+                Track real-time gold prices and market movements
+            </p>
+            
+            <div class="chart-container">
+                <div class="price-display">
+                    <div class="price-card">
+                        <div class="price-value" id="gold-price">$2,034.50</div>
+                        <div>Gold Spot Price (USD)</div>
+                    </div>
+                    <div class="price-card">
+                        <div class="price-value" id="gold-change">+$12.30</div>
+                        <div>Daily Change</div>
+                    </div>
+                    <div class="price-card">
+                        <div class="price-value" id="gold-percent">+0.61%</div>
+                        <div>Percentage Change</div>
+                    </div>
+                </div>
+                
+                <div class="simple-chart">
+                    <div class="chart-line"></div>
+                    <div style="text-align: center; z-index: 2;">
+                        <h3>📈 Live Gold Chart</h3>
+                        <p>Real-time price movements</p>
+                        <canvas id="goldChart" width="800" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Free Signals Section -->
+        <section class="signals-section">
+            <h2 class="section-title">Join Our Free Forex Signals Group</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 2rem;">
+                Get daily professional forex signals, market analysis, and trading education completely FREE!
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                <div style="background: rgba(255,255,255,0.8); padding: 2rem; border-radius: 15px;">
+                    <h3>🎯 Daily Signals</h3>
+                    <p>5-10 high-probability trades every day</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.8); padding: 2rem; border-radius: 15px;">
+                    <h3>📊 Market Analysis</h3>
+                    <p>Professional technical and fundamental analysis</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.8); padding: 2rem; border-radius: 15px;">
+                    <h3>📚 Free Education</h3>
+                    <p>Learn trading strategies and risk management</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.8); padding: 2rem; border-radius: 15px;">
+                    <h3>👥 Community Support</h3>
+                    <p>Connect with fellow traders worldwide</p>
+                </div>
+            </div>
+            <a href="https://t.me/martinezforexofficial11" class="signals-btn" target="_blank">
+                🚀 Join Free Signals Group Now!
+            </a>
+        </section>
+
+        <!-- Learning Section -->
+        <section id="learning">
+            <h2 class="section-title">Comprehensive Forex Learning Resources</h2>
+            <div class="learning-grid">
+                <div class="learning-card">
+                    <h3>📖 Beginner's Guide</h3>
+                    <p>Complete forex basics: terminology, market structure, and fundamental concepts every trader must know.</p>
+                </div>
+                <div class="learning-card">
+                    <h3>📊 Technical Analysis</h3>
+                    <p>Master chart patterns, indicators, and price action trading strategies used by professional traders.</p>
+                </div>
+                <div class="learning-card">
+                    <h3>💡 Risk Management</h3>
+                    <p>Learn position sizing, stop-loss strategies, and money management rules to protect your capital.</p>
+                </div>
+                <div class="learning-card">
+                    <h3>🎯 Trading Psychology</h3>
+                    <p>Develop the mental discipline required for successful trading and emotional control techniques.</p>
+                </div>
+                <div class="learning-card">
+                    <h3>⚡ Advanced Strategies</h3>
+                    <p>Scalping, swing trading, and long-term investment strategies for different market conditions.</p>
+                </div>
+                <div class="learning-card">
+                    <h3>🤖 Automated Trading</h3>
+                    <p>Introduction to Expert Advisors, algorithmic trading, and MT5 programming basics.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2021 Martinez Forex Official. All rights reserved. | Educational purposes only - Trading involves risk.</p>
+            <p>Disclaimer: Forex trading carries high risk. Never trade with money you cannot afford to lose.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Live Gold Price Simulation
+        function updateGoldPrice() {
+            const basePrice = 2034.50;
+            const variation = (Math.random() - 0.5) * 20;
+            const newPrice = basePrice + variation;
+            const change = variation;
+            const percent = (change / basePrice * 100);
+
+            document.getElementById('gold-price').textContent = `$${newPrice.toFixed(2)}`;
+            document.getElementById('gold-change').textContent = `${change >= 0 ? '+' : ''}$${change.toFixed(2)}`;
+            document.getElementById('gold-percent').textContent = `${change >= 0 ? '+' : ''}${percent.toFixed(2)}%`;
+            
+            // Update colors based on change
+            const changeColor = change >= 0 ? '#2ecc71' : '#e74c3c';
+            document.getElementById('gold-change').style.color = changeColor;
+            document.getElementById('gold-percent').style.color = changeColor;
+        }
+
+        // Simple Chart Animation
+        function drawGoldChart() {
+            const canvas = document.getElementById('goldChart');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Generate sample data points
+            const points = [];
+            for (let i = 0; i < 50; i++) {
+                const x = (i / 49) * width;
+                const y = height/2 + Math.sin(i * 0.3) * 50 + (Math.random() - 0.5) * 20;
+                points.push({x, y});
+            }
+            
+            // Draw chart line
+            ctx.beginPath();
+            ctx.strokeStyle = '#e74c3c';
+            ctx.lineWidth = 3;
+            ctx.moveTo(points[0].x, points[0].y);
+            
+            for (let i = 1; i < points.length; i++) {
+                ctx.lineTo(points[i].x, points[i].y);
+            }
+            ctx.stroke();
+            
+            // Draw points
+            ctx.fillStyle = '#c0392b';
+            points.forEach(point => {
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, 3, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        // Initialize animations and updates
+        setInterval(updateGoldPrice, 3000);
+        setInterval(drawGoldChart, 2000);
+        
+        // Initial calls
+        updateGoldPrice();
+        drawGoldChart();
+
+        // Mobile menu toggle (simple implementation)
+        const nav = document.querySelector('.nav-links');
+        const logo = document.querySelector('.logo');
+        
+        // Add mobile menu button for smaller screens
+        if (window.innerWidth <= 768) {
+            const menuButton = document.createElement('button');
+            menuButton.innerHTML = '☰';
+            menuButton.style.cssText = 'background: none; border: none; font-size: 1.5rem; cursor: pointer;';
+            logo.parentNode.appendChild(menuButton);
+            
+            menuButton.addEventListener('click', () => {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '100%';
+                nav.style.left = '0';
+                nav.style.right = '0';
+                nav.style.background = 'white';
+                nav.style.padding = '1rem';
+                nav.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
